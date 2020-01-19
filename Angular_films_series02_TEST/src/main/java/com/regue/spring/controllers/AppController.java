@@ -160,12 +160,9 @@ public class AppController {
 	}
 	@GetMapping(path= {"getAllUserNotAdded/{id_user}"})
 	public List<User> getAllUserNotAdded (@PathVariable("id_user") int id_user){
-		
+		System.err.println("ALL USER");
 		return userServices.getAllUserNotAdded(id_user);
 	}
-	
-	
-	
 	@GetMapping(path="films")
 	public List<Films> getAllFilms(){
 		return filmsServices.listar();
