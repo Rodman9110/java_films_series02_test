@@ -13,6 +13,7 @@ public interface RoleServices {
 	Role edit(Role g);
 	Role delete(int id);
 	Role getUserRole(int id_user);
+	List<Role> FindRoleId(int id_role);
 
 
 }

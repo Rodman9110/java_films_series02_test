@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.regue.spring.model.Actors;
 import com.regue.spring.model.Actors_Film;
-
+import com.regue.spring.model.Comment_Foro;
 import com.regue.spring.services.ActorsServices;
 import com.regue.spring.services.Actors_CountryServices;
 import com.regue.spring.services.Actors_FilmServices;
@@ -44,13 +44,17 @@ public class AppControllerActors {
 	public List<Actors> getAllActors(){
 		return actorsServices.listar();
 	}
+	@GetMapping(path="getAllActorsOrderName")
+	public List<Actors> getAllActorsOrderName(){
+		return actorsServices.getAllActorsOrderName();
+	}
 	@GetMapping(path = {"getAllActorsFilm/{id_film}"})
 	public List<Actors>getAllActorsFilm(@PathVariable("id_film") int id_film){
 		
 		return actorsServices.getAllActorsFilm(id_film);	
 	}
 	@PostMapping(path="postAddActor")
-	public Actors postAddActor(@RequestBody Actors actor) {
+	public String postAddActor(@RequestBody Actors actor) {
 		
 		String name = actor.getName();
 		int id_country = actor.getId_country();		
@@ -69,8 +73,9 @@ public class AppControllerActors {
 		System.err.println(name+" "+id_country+" "+date_actor+" "+details+" "+img_profile_complete);
 		
 		if (actorsServices.findActorForName(name) !=null) {
-			
-			System.err.println("El Actor "+name+" ta esta add");
+			String error = "El Actor "+name+" ta esta add";
+			System.err.println(error);
+			return error;
 			
 		}
 		else {
@@ -78,11 +83,12 @@ public class AppControllerActors {
 			actorsServices.AddActor(name, img_profile_complete, id_country, date_actor, details);			
 			int id_actor = actorsServices.findActorIdForName(name);
 			actors_CountryServices.addActorsCountry(id_actor, id_country);
-					
+			
+			String Successfully = "Add Actor Successfully";
 			System.err.println("Add Actor");
+			return Successfully;
 		}
 			
-		return null;
 	}
 	
 	@PostMapping(path="postAddActorFilm")
@@ -106,7 +112,12 @@ public class AppControllerActors {
 		return null;
 	}
 	
-	
+	 
+	@GetMapping(path = {"getSearchActorForName/{name}"})
+	public List<Actors>getAllActorsFilm(@PathVariable("name") String name){
+		
+		return actorsServices.getSearchActorForName(name);	
+	}
 	
 
 }

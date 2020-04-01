@@ -6,6 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.regue.spring.model.Countries;
+import com.regue.spring.model.Film_Genres;
 import com.regue.spring.model.User_Country;
 import com.regue.spring.repository.User_CountryRepository;
 
@@ -50,5 +52,7 @@ public class User_CountryServicesImpl implements User_CountryServices{
 		user_CountryRepository.AddUserCountry(id_user, id_country);
 		return null;
 	}
+
+	
 
 }

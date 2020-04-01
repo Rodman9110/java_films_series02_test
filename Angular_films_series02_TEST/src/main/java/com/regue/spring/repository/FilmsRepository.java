@@ -38,5 +38,8 @@ public interface FilmsRepository extends JpaRepository<Films, Integer> {
 	
 	@Query("SELECT f FROM Films f where f.name LIKE %:name%")
 	List<Films> getSearchFilmForName(@Param("name")String name);
+	
+	@Query("SELECT f FROM Films f INNER JOIN Film_Like l ON f.id = id_film ")
+	List<Films> getTop100Films();
 
 }

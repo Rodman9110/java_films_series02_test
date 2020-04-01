@@ -51,4 +51,10 @@ public class RoleServicesImpl implements RoleServices{
 		return null;
 	}
 
+	@Override
+	public List<Role> FindRoleId(int id_role) {
+		// TODO Auto-generated method stub
+		return roleRepository.FindRoleId(id_role);
+	}
+
 }

@@ -12,6 +12,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.regue.spring.model.Actors;
 
+
 public interface ActorsRepository extends JpaRepository<Actors, Integer>{
 	
 	
@@ -31,5 +32,11 @@ public interface ActorsRepository extends JpaRepository<Actors, Integer>{
 	
 	@Query("SELECT a FROM Actors a  WHERE a.name = ?1")
 	Actors findActorForName(String name);
+	
+	@Query("SELECT a FROM Actors a  ORDER BY a.name")
+	List<Actors> getAllActorsOrderName();
+	
+	@Query("SELECT a FROM Actors a where a.name LIKE %:name%")
+	List<Actors> getSearchActorForName(@Param("name")String name);
 	
 }

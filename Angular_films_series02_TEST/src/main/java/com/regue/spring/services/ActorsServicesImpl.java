@@ -72,6 +72,18 @@ public class ActorsServicesImpl implements ActorsServices{
 		return actorsRepository.getAllActorsFilm(id_film);
 	}
 
+	@Override
+	public List<Actors> getAllActorsOrderName() {
+		// TODO Auto-generated method stub
+		return actorsRepository.getAllActorsOrderName();
+	}
+
+	@Override
+	public List<Actors> getSearchActorForName(String name) {
+		// TODO Auto-generated method stub
+		return actorsRepository.getSearchActorForName(name);
+	}
+
 	
 
 }

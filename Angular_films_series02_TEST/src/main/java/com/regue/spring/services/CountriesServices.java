@@ -10,7 +10,7 @@ public interface CountriesServices {
 	
 	List<Countries>listar();
 	Optional<Countries> listarId(int id);
-	List<Countries> FindCountry(int id_country);
+	List<Countries> FindCountryId(int id_country);
 	Countries add(Countries c);
 	Countries edit(Countries c);
 	Countries delete(int id);

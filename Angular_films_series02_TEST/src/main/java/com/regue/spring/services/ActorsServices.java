@@ -5,7 +5,7 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
-
+import org.springframework.data.repository.query.Param;
 
 import com.regue.spring.model.Actors;
 
@@ -26,6 +26,8 @@ public interface ActorsServices {
 			Date date_actor,
 			String details
 		);
+	List<Actors> getAllActorsOrderName();
+	List<Actors> getSearchActorForName(String name);
 	
 
 }

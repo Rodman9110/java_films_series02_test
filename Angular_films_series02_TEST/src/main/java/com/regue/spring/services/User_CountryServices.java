@@ -13,5 +13,6 @@ public interface User_CountryServices {
 	User_Country edit(User_Country u);
 	User_Country delete(int id);
 	User_Country addUserCountry(int id_user,int id_country);
+//	List<User_Country> UserCountryId (int id_country);
 
 }

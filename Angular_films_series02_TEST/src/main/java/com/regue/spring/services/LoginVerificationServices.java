@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-
+import com.regue.spring.model.Genres;
 import com.regue.spring.model.User;
 
 public interface LoginVerificationServices {

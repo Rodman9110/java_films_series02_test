@@ -28,9 +28,9 @@ public class CountriesServicesImpl implements CountriesServices {
 	}
 
 	@Override
-	public List<Countries> FindCountry(int id_country) {
+	public List<Countries> FindCountryId(int id_country) {
 		// TODO Auto-generated method stub
-		return null;
+		return countriesRepository.FindCountryId(id_country);
 	}
 
 	@Override
@@ -56,5 +56,7 @@ public class CountriesServicesImpl implements CountriesServices {
 		// TODO Auto-generated method stub
 		return countriesRepository.getFilmCountry(id_film);
 	}
+
+	
 
 }

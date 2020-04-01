@@ -51,4 +51,10 @@ public class GenderServiceImpl implements GenderService{
 		return null;
 	}
 
+	@Override
+	public List<Gender> FindGenderId(int id_gender) {
+		// TODO Auto-generated method stub
+		return genderRepository.FindGenderId(id_gender);
+	}
+
 }

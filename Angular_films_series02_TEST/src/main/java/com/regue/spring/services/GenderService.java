@@ -14,5 +14,6 @@ public interface GenderService {
 	Gender edit(Gender g);
 	Gender delete(int id);
 	Gender getUserGender(int id_user);
+	List<Gender> FindGenderId(int id_gender);
 
 }
