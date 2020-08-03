@@ -133,11 +133,55 @@ public class AppControllerFilms {
 	public List<Films> getTop100Films(){
 		return null;
 	}
-	@GetMapping(path={"search/{id_genres}"})
-	public List<Films> SearchGenresId(@PathVariable("id_genres") int id_genres){
-		System.out.println("Buscar por id genres");
+	
+//	@GetMapping(path={"search/{id_genres}"})
+//	public List<Films> SearchGenresId(@PathVariable("id_genres") int id_genres){
+//		System.out.println("Buscar por id genres");
+//		return filmsServices.FindGenresFilm(id_genres);	
+//	}
+	
+	@GetMapping(path={"search","search/{id_genres}/{id_classification}"})
+	public List<Films> SearchGenresId(@PathVariable("id_genres") int id_genres,@PathVariable("id_classification") int id_classification){
+		
+		if(id_genres != 0 || id_classification != 0) {
+			
+			if(id_genres != 0 && id_classification != 0) {
+				
+				System.err.println(id_genres+" "+id_classification);
+				return filmsServices.FindGenresClassificationFilm(id_genres, id_classification);
+				
+			}
+			if (id_genres !=0) {
+				return filmsServices.FindGenresFilm(id_genres);	
+				
+			}
+			
+			if (id_classification !=0) {
+				System.err.println("CLASSICATION :"+id_classification);
+				return filmsServices.FindClassificationFilm(id_classification);	
+			}
+			
+			
+		}
+		else {
+			System.err.println(id_genres+" "+id_classification);
+			
+			return null;
+		}
+	
+		
+		
+		
+		
+		
+		
+		
 		return filmsServices.FindGenresFilm(id_genres);	
 	}
+	
+	
+	
+	
 	@GetMapping(path={"getFilmCountry/{id_film}"})
 	public Countries getFilmCountry(@PathVariable("id_film") int id_film){
 		System.err.println("Buscar Country");

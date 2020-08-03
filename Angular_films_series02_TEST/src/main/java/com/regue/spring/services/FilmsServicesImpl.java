@@ -80,4 +80,16 @@ public class FilmsServicesImpl implements FilmsServices{
 		return filmsRepository.getSearchFilmForName(name);
 	}
 
+	@Override
+	public List<Films> FindClassificationFilm(int id_classification) {
+		
+		return filmsRepository.findClassificationFilm(id_classification);
+	}
+
+	@Override
+	public List<Films> FindGenresClassificationFilm(int id_genres, int id_classification) {
+		// TODO Auto-generated method stub
+		return filmsRepository.FindGenresClassificationFilm(id_genres, id_classification);
+	}
+
 }

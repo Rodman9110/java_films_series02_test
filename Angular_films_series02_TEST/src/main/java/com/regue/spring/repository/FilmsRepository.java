@@ -17,6 +17,12 @@ public interface FilmsRepository extends JpaRepository<Films, Integer> {
 	@Query("SELECT f FROM Films f where f.id_genres = ?1")
 	 public List<Films> findGenresFilm(Integer id_genres);
 	
+	@Query("SELECT f FROM Films f where f.id_classification = ?1")
+	 public List<Films> findClassificationFilm(int id_classification);
+	
+	@Query("SELECT f FROM Films f where f.id_genres = ?1 AND f.id_classification = ?2  ")
+	List<Films> FindGenresClassificationFilm(int id_genres,int id_classification);
+	
 	@Modifying
 	@Query(value = "INSERT INTO Films (name,description,date_film,id_genres,id_country,poster_film,trailer,id_classification) VALUES (:name,:description,:date_film,:id_genres,:id_country,:poster_film,:trailer,:id_classification)", nativeQuery = true)
 	@Transactional

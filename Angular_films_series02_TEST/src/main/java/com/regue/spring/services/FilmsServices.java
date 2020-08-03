@@ -28,5 +28,7 @@ public interface FilmsServices {
 			 int id_classification);
 	
 	List<Films> getSearchFilmForName(String name);
-
+	List<Films> FindClassificationFilm(int id_classification);
+	List<Films> FindGenresClassificationFilm(int id_genres,int id_classification);
+	
 }
